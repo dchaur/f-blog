@@ -35,12 +35,16 @@ export default {
   }),
 
   created() {
-    const url = "/api/articles";
-    this.axios.get(url).then(res => {
-      this.articles = res.data.data;
-    });
+    this.loadArticles();
   },
   methods: {
+    loadArticles() {
+      const url = "/api/articles";
+      var self = this;
+      axios.get(url).then(res => {
+        this.articles = res.data.data;
+      });
+    },
     showArticle(slug) {
       this.$router.push(`/article/${slug}`);
     }

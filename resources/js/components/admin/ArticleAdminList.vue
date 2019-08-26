@@ -133,7 +133,7 @@ export default {
         });
       } else {
         this.axios.post(baseUrl, this.editedItem).then(res => {
-          this.articles.push(this.editedItem);
+          this.articles.push(res.data.article);
         });
       }
 

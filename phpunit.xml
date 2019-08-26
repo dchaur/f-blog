@@ -29,7 +29,9 @@
         <server name="MAIL_DRIVER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
-        <server name="DB_CONNECTION" value="sqlite"/>
-        <server name="APP_DEBUG" value="false"/>
+        <server name="MONGO_HOST" value="mongodb"/>
+        <server name="MONGO_DATABASE" value="unittest"/>
+        <server name="MONGO_PORT" value="27017"/>
+        <server name="QUEUE_CONNECTION" value="database"/>
     </php>
 </phpunit>

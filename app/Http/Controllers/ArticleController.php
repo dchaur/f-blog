@@ -28,8 +28,10 @@ class ArticleController extends Controller
         $article->content = $request['content'];
         $article->slug = $request['slug'];
         $article->save();
-
-        return response()->json('Article successfully created');
+        return response()->json([
+            'message' => 'Article successfully created',
+            'article' => $article
+        ], 201);
     }
 
     /**
@@ -67,6 +69,8 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $article->delete();
 
-        return response()->json('Article deleted successfully');
+        return response()->json([
+            'message' => 'Article deleted successfully'
+        ], 204);
     }
 }

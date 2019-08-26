@@ -2673,7 +2673,7 @@ module.exports = function spread(callback) {
 
 
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/axios/node_modules/is-buffer/index.js");
+var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js");
 
 /*global toString:true*/
 
@@ -3008,28 +3008,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/axios/node_modules/is-buffer/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/axios/node_modules/is-buffer/index.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Article.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Article.vue?vue&type=script&lang=js& ***!
@@ -3107,6 +3085,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3116,14 +3095,18 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    var _this = this;
-
-    var url = "/api/articles";
-    this.axios.get(url).then(function (res) {
-      _this.articles = res.data.data;
-    });
+    this.loadArticles();
   },
   methods: {
+    loadArticles: function loadArticles() {
+      var _this = this;
+
+      var url = "/api/articles";
+      var self = this;
+      axios.get(url).then(function (res) {
+        _this.articles = res.data.data;
+      });
+    },
     showArticle: function showArticle(slug) {
       this.$router.push("/article/".concat(slug));
     }
@@ -3372,7 +3355,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         this.axios.post(baseUrl, this.editedItem).then(function (res) {
-          _this4.articles.push(_this4.editedItem);
+          _this4.articles.push(res.data.article);
         });
       }
 
@@ -3605,6 +3588,28 @@ module.exports = function escape(url) {
     }
 
     return url
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-buffer/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
 }
 
 
@@ -21896,6 +21901,7 @@ var render = function() {
     "v-container",
     { attrs: { fluid: "" } },
     [
+      _vm._v("\n  " + _vm._s(_vm.articles) + "\n  "),
       _c("v-data-iterator", {
         attrs: {
           items: _vm.articles,
@@ -22417,7 +22423,7 @@ var render = function() {
                     ),
                 _vm._v(" "),
                 _c("v-switch", {
-                  attrs: { "hide-details": "true", label: "The dark side" },
+                  attrs: { "hide-details": true, label: "The dark side" },
                   model: {
                     value: _vm.isDark,
                     callback: function($$v) {

@@ -21,7 +21,7 @@
           <v-btn v-else icon to="/login">
             <v-icon>mdi-login</v-icon>
           </v-btn>
-          <v-switch hide-details="true" v-model="isDark" label="The dark side"></v-switch>
+          <v-switch :hide-details="true" v-model="isDark" label="The dark side"></v-switch>
         </template>
       </v-toolbar>
     </div>
