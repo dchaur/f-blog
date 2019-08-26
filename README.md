@@ -42,6 +42,11 @@ App Key
 php artisan key:generate 
 ```
 
+JWT Token
+```
+php artisan jwt:secret
+```
+
 **NOTE:** Bear in mind to change your mongo DB credentials
 
 
