@@ -3085,7 +3085,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -21901,7 +21900,6 @@ var render = function() {
     "v-container",
     { attrs: { fluid: "" } },
     [
-      _vm._v("\n  " + _vm._s(_vm.articles) + "\n  "),
       _c("v-data-iterator", {
         attrs: {
           items: _vm.articles,
