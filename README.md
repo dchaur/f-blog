@@ -32,9 +32,18 @@ Installing npm dependencies
 npm install
 ```
 
-Use the env.example `cp .env.example .env`
+Environment
+```
+env.example `cp .env.example .env`
+```
+
+App Key
+```
+php artisan key:generate 
+```
 
 **NOTE:** Bear in mind to change your mongo DB credentials
+
 
 Migration-seeds
 ---------
