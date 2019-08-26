@@ -34,7 +34,7 @@ npm install
 
 Environment
 ```
-env.example `cp .env.example .env`
+cp .env.example .env
 ```
 
 App Key
