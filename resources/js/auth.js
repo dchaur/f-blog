@@ -9,7 +9,6 @@ const config = {
     tokenDefaultName: 'lrvTnk',
     tokenStore: ['localStorage'],
     rolesVar: 'role',
-    registerData: { url: 'auth/register', method: 'POST', redirect: '/login' },
     loginData: {
         url: '/api/auth/login',
         method: 'POST',
@@ -22,8 +21,6 @@ const config = {
         redirect: '/',
         makeRequest: true
     },
-    fetchData: { url: 'auth/admin', method: 'GET', enabled: true },
-    refreshData: { url: 'auth/refresh', method: 'GET', enabled: true, interval: 30 }
 };
 
 export default config;

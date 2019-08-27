@@ -74249,11 +74249,6 @@ var config = {
   tokenDefaultName: 'lrvTnk',
   tokenStore: ['localStorage'],
   rolesVar: 'role',
-  registerData: {
-    url: 'auth/register',
-    method: 'POST',
-    redirect: '/login'
-  },
   loginData: {
     url: '/api/auth/login',
     method: 'POST',
@@ -74265,17 +74260,6 @@ var config = {
     method: 'POST',
     redirect: '/',
     makeRequest: true
-  },
-  fetchData: {
-    url: 'auth/admin',
-    method: 'GET',
-    enabled: true
-  },
-  refreshData: {
-    url: 'auth/refresh',
-    method: 'GET',
-    enabled: true,
-    interval: 30
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (config);

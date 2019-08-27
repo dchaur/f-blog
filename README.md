@@ -1,7 +1,14 @@
 F-Blog: Laravel + Mongodb + Vue + Vuetify
 ===============
 
-A complete app based on Laravel for the backend + MongoDB & Eloquent using Vue + Vuetify for the frontend
+A complete app based on Laravel for the backend:
+- MongoDB (https://github.com/jenssegers/laravel-mongodb) & Eloquent 
+
+And for the frontend
+- Vue (https://vuejs.org/) + Vuetify (https://vuetifyjs.com/en/) 
+
+The middleware auth is using:
+- JWT (https://jwt-auth.readthedocs.io/en/develop/laravel-installation/)
 
 
 Table of contents
